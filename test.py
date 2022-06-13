@@ -1,7 +1,0 @@
-cp = "SDFBE1X38 ILNVP 6RTC HXYUKLM 82ZH NVL JBE4CG 9A D5HE 7WJZH5. QZAC U2GI T6 0F! ORWH5 97 T1AXYZ6FUE L2 VT8 8XZ VKUY 15 T1UF CN JHTJI 6R9P JK4R5B."
-while (True):
-    a,b = map(str,input().split())
-    for i in range(len(cp)):    
-        if cp[i].isdigit():
-            cp = cp[:i]+" "+cp[i+1:]
-    print(cp)
