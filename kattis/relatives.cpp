@@ -26,8 +26,6 @@ int main() {
         set<int> ps;
         int x = n;
         while (x>1) {
-            if (ps.size()>2)
-                break;
             ps.insert(lprime[x]);
             x/=lprime[x];
         }
