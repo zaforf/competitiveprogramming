@@ -1,0 +1,76 @@
+read = open("tttt.in", "r").readline
+write = open("tttt.out", "w").write
+
+alpha = [chr(i) for i in range(65,65+26)]
+grid = [read(),read(),read()]
+tems = set()
+indivs = set()
+
+def check():
+    temp = set()
+    temp.add(grid[0][0])
+    temp.add(grid[1][0])
+    temp.add(grid[2][0])
+    def add(t):
+        if len(t)==1:
+            indivs.add(t.pop())
+        elif len(t)==2:
+            e = ""
+            x = sorted([i for i in t])
+            for i in x: e+=str(i)
+            tems.add(e)
+    add(temp)
+    temp = set()
+    temp.add(grid[0][1])
+    temp.add(grid[1][1])
+    temp.add(grid[2][1])
+    add(temp)
+    temp = set()
+    temp.add(grid[0][2])
+    temp.add(grid[1][2])
+    temp.add(grid[2][2])
+    add(temp)
+    temp = set()
+    temp.add(grid[0][1])
+    temp.add(grid[1][1])
+    temp.add(grid[2][1])
+    add(temp)
+    temp = set()
+    temp.add(grid[0][0])
+    temp.add(grid[0][1])
+    temp.add(grid[0][2])
+    add(temp)
+    temp = set()
+    temp.add(grid[1][0])
+    temp.add(grid[1][1])
+    temp.add(grid[1][2])
+    add(temp)
+    temp = set()
+    temp.add(grid[2][0])
+    temp.add(grid[2][1])
+    temp.add(grid[2][2])
+    add(temp)
+    temp = set()
+    temp.add(grid[0][0])
+    temp.add(grid[1][1])
+    temp.add(grid[2][2])
+    add(temp)
+    temp = set()
+    temp.add(grid[0][1])
+    temp.add(grid[1][1])
+    temp.add(grid[2][1])
+    add(temp)
+    temp = set()
+    temp.add(grid[0][2])
+    temp.add(grid[1][1])
+    temp.add(grid[2][0])
+    add(temp)
+    temp = set()
+    return
+
+
+check()
+write(str(len(indivs))+"\n")
+write(str(len(tems)))
+print(tems)
+print(indivs)
