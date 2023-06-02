@@ -2,18 +2,28 @@
 using namespace std;
 
 int main() {
-    // freopen("std.in", "r", stdin);
-    // freopen("std.out", "w", stdout);
-    unordered_map<int,int> nums;
-    int n,targ;cin>>n>>targ;
-    for (int i=0;i<n;i++) {
-        int inp;cin>>inp;
-        if (nums.count(targ-inp)) {
-            cout<<nums[targ-inp]+1<<" "<<i+1;
-            return 0;
-        }
-        nums[inp]=i;
+    int N,targ;cin>>N>>targ;
+    vector<pair<int,int>> vals(N);
+    for (int i=0;i<N;i++) {
+        cin>>vals[i].first;
+        vals[i].second=i;
     }
-    cout<<"IMPOSSIBLE";
+    sort(vals.begin(),vals.end());
+    int l=0,r=N-1;
+    // for (auto a : vals)
+    //     cout << a.first << " ";
+    // cout<<"\n";
+    while (l<r) {
+        int sum = vals[l].first+vals[r].first;
+        if (sum==targ) {
+            cout<<vals[l].second+1<<" "<<vals[r].second+1;
+            break;
+        } else if (sum>targ)
+            r--;
+        else
+            l++;
+    }
+    if (l==r)
+        cout<<"IMPOSSIBLE";
     return 0;
 }
