@@ -1,0 +1,1 @@
+print("\n".join([str((lambda n: (lambda f, a: f(f, a))(lambda rec, n: 1 if n == 1 else n+rec(rec, n//2), n))(int(input()))) for i in range(int(input()))]))
