@@ -3,8 +3,8 @@
 !*.*
 .vscode/
 *.exe
-.DS_Store
-.cph/
+**/.DS_Store
+*.cph/
 *.dSYM/
 *.in
 *.out
