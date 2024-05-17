@@ -1,0 +1,1 @@
+print("\n".join([[input(),["NO","YES"][input().count("U")%2]][1] for i in range(int(input()))]))
