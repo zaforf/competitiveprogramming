@@ -28,7 +28,6 @@ int32_t main() {
 		double d2 = ((x2-x1)*(x4-x1)+(y2-y1)*(y4-y1))/dist(x1,y1,x4,y4);
 		double d3 = ((x1-x2)*(x3-x2)+(y1-y2)*(y3-y2))/dist(x2,y2,x3,y3);
 		double d4 = ((x1-x2)*(x4-x2)+(y1-y2)*(y4-y2))/dist(x2,y2,x4,y4);
-		cout << z1 << " " << z2 << " " << d1 << " " << d2 << endl;
 		if ((!z1 && d1>=0 && d3>=0) || (!z2 && d2>=0 && d4>=0) || (abs(sign(z1)+sign(z2))!=2 && (d1+d2)>-1e-10 && (d3+d4)>-1e-10))
 			cout << "YES\n";
 		else
