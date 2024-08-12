@@ -35,30 +35,29 @@ ll comb(ll a, ll b) {
 }
 
 void solve() {
-	int n,k; cin>>n>>k;
-	int c = 0; ll ans = 0;
-	int mid = (k+1)/2;
-	for (int i=0;i<n;i++) {
-		int inp; cin>>inp;
-		if (inp==1) c++;
-	}
-	if (k==1) {
-		cout << c << '\n';
+	ll n,k; cin>>n>>k;
+	if (k==0) {
+		cout << "1\n";
 		return;
 	}
-	for (int i=mid;i<=k;i++) {
-		if (i>c) break;
-		if (k-i>n-c) continue;
-		ans = (ans+comb(c,i)*comb(n-c,k-i))%MOD;
+	if (n&1) {
+		cout << exp(exp(2,n-1)+1,k)%MOD << '\n';
+	} else {
+		ll equal = exp(exp(2,n-1)-1,k);
+		ll ans = exp(2, n*k) - equal;
+		ans = ans*exp(exp(2,n-1)+1,MOD-2)%MOD;
+		ans = (ans + equal) % MOD;
+		while (ans<0) ans += MOD;
+		cout << ans%MOD << '\n';
 	}
-	cout << ans << '\n';
+	
 }
 
 int main() {
+	int T;cin>>T;
 	factorial();
 	inverses();
-	int T; cin>>T;
-	for (int i=0;i<T;i++) {
+	while (T --> 0) {
 		solve();
 	}
 	return 0;
