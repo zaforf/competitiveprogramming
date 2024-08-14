@@ -16,7 +16,7 @@ struct Segtree {
             tree[i] = op(tree[2 * i], tree[2 * i + 1]);
     }
     T qry(int l, int r) {
-        T res=0;
+        T res=0; // DON'T FORGET TO CHANGE THIS
         l += N; r += N;
         while (l <= r) {
             if (l % 2 == 1) res = op(res, tree[l++]);
@@ -29,8 +29,8 @@ struct Segtree {
     int search(T val) {
         int i=1,s=0;
         while (i<N) {
-            if (s+tree[2*i]<val) {
-                s+=tree[2*i];
+            if (op(s,tree[2*i])<val) {
+                s=op(s,tree[2*i]);
                 i=2*i+1;
             } else
                 i=2*i;
