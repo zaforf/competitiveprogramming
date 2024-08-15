@@ -24,7 +24,8 @@ int main() {
 		if (prime[i]==0) {
 			prime[i]=x++;
 			for (int j=i+i;j<MAX;j+=i)
-				prime[j] = prime[i];
+				if (prime[j]) continue;
+				else prime[j] = prime[i];
 		}
 	while (T --> 0) {
 		solve();
