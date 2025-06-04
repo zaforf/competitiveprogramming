@@ -6,7 +6,12 @@ public class TwoSets2 {
 	public static void main(String[] args) throws IOException {
         FastIO io = new FastIO();
         int n=io.nextInt();
-        int maxd = n*(n+1)/2;
+        if (n<2) {
+            io.print(0);
+            io.close();
+            return;
+        }
+        int maxd = n*(n+1)/4;
         long dp[] = new long[maxd+1], ndp[] = new long[maxd+1];
         dp[1]=1;
         // store possibles differences
