@@ -1,12 +1,13 @@
 struct Segtree {
     int N=1;
     using T = int;
+    T def = 0;
     vector<T> tree;
     // operator: must be associative and commutative
     T op(T a, T b) { return a+b; }
     Segtree(int n) {
         while (N < n) N <<= 1;
-        tree.assign(N<<1, 0);
+        tree.assign(N<<1, def);
     }
     // update value at position i to val, 0-index
     void upd(int i, T val) {
@@ -16,7 +17,7 @@ struct Segtree {
             tree[i] = op(tree[2 * i], tree[2 * i + 1]);
     }
     T qry(int l, int r) {
-        T res=0; // DON'T FORGET TO CHANGE THIS
+        T res = def;
         l += N; r += N;
         while (l <= r) {
             if (l % 2 == 1) res = op(res, tree[l++]);
